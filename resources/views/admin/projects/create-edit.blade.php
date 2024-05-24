@@ -67,7 +67,7 @@
                 <label for="img" class="form-label">Image</label>
                 <input type="file" class="form-control" id="img" placeholder="Add project's image" name="img"
                     onchange="showImg(event)">
-                <img id="thumb" class="thumb-custom py-4" src="{{ asset('storage/' . $project->img) }}"
+                <img id="thumb" class="thumb-custom py-4" src="{{ asset('storage/' . $project?->img) }}"
                     onerror="this.src = '/img/img-placeholder.png'">
             </div>
 
