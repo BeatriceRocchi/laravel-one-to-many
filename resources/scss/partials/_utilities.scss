@@ -1,0 +1,13 @@
+.btn-custom-primary {
+    background-color: $color-primary;
+    color: white;
+
+    &:hover {
+        background-color: darken($color-primary, 5%);
+    }
+}
+
+.btn-link-custom {
+    width: 40px;
+    height: 40px;
+}
