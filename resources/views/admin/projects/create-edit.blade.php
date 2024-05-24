@@ -42,7 +42,7 @@
                 <select class="form-select" id="type" name="type_id">
                     <option value="">Select a project type</option>
                     @foreach ($types as $type)
-                        <option @if (old('type_id', $project->type?->id) == $type->id) selected @endif value="{{ $type->id }}">
+                        <option @if (old('type_id', $project?->type?->id) == $type->id) selected @endif value="{{ $type->id }}">
                             {{ $type->name }}</option>
                     @endforeach
                 </select>
