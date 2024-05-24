@@ -11,3 +11,11 @@
     width: 40px;
     height: 40px;
 }
+
+.projects-link-custom {
+    line-height: 2rem;
+
+    &:hover {
+        color: $color-primary;
+    }
+}

@@ -94,4 +94,10 @@ class TypesController extends Controller
 
         return redirect()->route('admin.types.index')->with('delete_msg', 'The type ' . $type->name . ' has been successfully removed from the list');
     }
+
+    public function projectsByType()
+    {
+        $types = Type::all();
+        return view('admin.types.types-projects', compact('types'));
+    }
 }

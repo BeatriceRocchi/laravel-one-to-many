@@ -28,9 +28,14 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
+
+        // Rotte CRUD
         Route::resource('projects', ProjectsController::class);
         Route::resource('technologies', TechnologiesController::class);
         Route::resource('types', TypesController::class);
+
+        // Rotte custom
+        Route::get('projects-type', [TypesController::class, 'projectsByType'])->name('projects_type');
     });
 
 // Rotte authentication

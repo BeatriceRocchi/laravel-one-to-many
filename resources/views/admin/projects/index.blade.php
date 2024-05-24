@@ -26,9 +26,9 @@
                 <tbody>
                     @forelse ($projects as $project)
                         <tr>
-                            <td>{{ $project->id }}</td>
+                            <td scope="row">{{ $project->id }}</td>
                             <td class="text-nowrap">{{ $project->title }}</td>
-                            <td class="text-nowrap">{{ $project->type->name }}</td>
+                            <td class="text-nowrap">{{ $project->type?->name }}</td>
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->img }}</td>
                             {{-- TODO: aggiungere thumb immagine al posto di name usato come placeholder --}}
