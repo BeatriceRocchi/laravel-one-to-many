@@ -4,6 +4,18 @@
 
     &:hover {
         background-color: darken($color-primary, 5%);
+        color: white;
+    }
+}
+
+.btn-custom-primary-rev {
+    background-color: white;
+    color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover {
+        background-color: $color-primary;
+        color: white;
     }
 }
 

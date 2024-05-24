@@ -17,7 +17,12 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        if (isset($_GET['toSearch'])) {
+            $projects = Project::where('title', 'LIKE', '%' . $_GET['toSearch'] . '%')->get();
+        } else {
+            $projects = Project::all();
+        }
+
         return view('admin.projects.index', compact('projects'));
     }
 
