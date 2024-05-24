@@ -36,6 +36,19 @@
 
             </div>
 
+            {{-- Type select --}}
+            <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <select class="form-select" id="type" name="type_id">
+                    <option value="">Select a project type</option>
+                    @foreach ($types as $type)
+                        <option @if (old('type_id', $project->type?->id) == $type->id) selected @endif value="{{ $type->id }}">
+                            {{ $type->name }}</option>
+                    @endforeach
+                </select>
+
+            </div>
+
             {{-- Description textarea --}}
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
