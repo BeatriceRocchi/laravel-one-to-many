@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Http\Requests\ProjectRequest;
 use App\Functions\Helper;
 use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectsController extends Controller
 {
@@ -40,6 +41,11 @@ class ProjectsController extends Controller
     public function store(ProjectRequest $request)
     {
         $form_data = $request->all();
+
+        if (array_key_exists('img', $form_data)) {
+            $img_path = Storage::put('uploads', $form_data['img']);
+            $form_data['img'] = $img_path;
+        }
 
         $form_data['slug'] = Helper::generateSlug($form_data['title'], Project::class);
 

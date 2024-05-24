@@ -19,7 +19,7 @@
             @endif --}}
         </div>
 
-        <form action="{{ $route }}" class="form-custom" method="POST">
+        <form action="{{ $route }}" class="form-custom" method="POST" enctype="multipart/form-data">
             @csrf
             @method($method)
             {{-- Title input --}}
@@ -63,7 +63,6 @@
             </div>
 
             {{-- Image input --}}
-            {{-- TODO: aggiungere caricamento funzionante --}}
             <div class="mb-3">
                 <label for="img" class="form-label">Image</label>
                 <input type="file" class="form-control" id="img" placeholder="Add project's image" name="img">

@@ -30,8 +30,12 @@
                             <td class="text-nowrap">{{ $project->title }}</td>
                             <td class="text-nowrap">{{ $project->type?->name }}</td>
                             <td>{{ $project->description }}</td>
-                            <td>{{ $project->img }}</td>
-                            {{-- TODO: aggiungere thumb immagine al posto di name usato come placeholder --}}
+                            <td>
+                                <div class="thumb-custom text-center">
+                                    <img src="{{ asset('storage/' . $project->img) }}" alt="{{ $project->title }}"
+                                        onerror="this.src = '/img/img-placeholder.png'">
+                                </div>
+                            </td>
                             <td>
                                 <div class="d-flex">
                                     <a href="{{ route('admin.projects.show', $project) }}"
