@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            ProjectsTableSeeder::class,
-            TechnologiesTableSeeder::class,
             TypesTableSeeder::class,
+            TechnologiesTableSeeder::class,
+            ProjectsTableSeeder::class,
         ]);
     }
 }

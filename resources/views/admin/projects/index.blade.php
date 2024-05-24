@@ -17,6 +17,7 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Title</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Description</th>
                         <th scope="col">Image</th>
                         <th scope="col">Actions</th>
@@ -26,7 +27,8 @@
                     @forelse ($projects as $project)
                         <tr>
                             <td>{{ $project->id }}</td>
-                            <td>{{ $project->title }}</td>
+                            <td class="text-nowrap">{{ $project->title }}</td>
+                            <td class="text-nowrap">{{ $project->type->name }}</td>
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->img }}</td>
                             {{-- TODO: aggiungere thumb immagine al posto di name usato come placeholder --}}
