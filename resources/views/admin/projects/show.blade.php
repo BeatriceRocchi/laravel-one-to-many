@@ -6,7 +6,8 @@
     <div class="card m-4">
         <div class="d-flex">
             <div class="card-img-box">
-                <img src="..." class="card-img-top" alt="{{ $project->title }}">
+                <img src="{{ asset('storage/' . $project->img) }}" class="card-img-top" alt="{{ $project->title }}"
+                    onerror="this.src = '/img/img-placeholder.png'">
             </div>
             <div class="card-body">
                 <h5>{{ $project->title }}</h5>

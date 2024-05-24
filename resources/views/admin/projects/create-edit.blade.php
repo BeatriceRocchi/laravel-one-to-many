@@ -19,7 +19,7 @@
             @endif --}}
         </div>
 
-        <form action="{{ $route }}" class="form-custom" method="POST" enctype="multipart/form-data">
+        <form action="{{ $route }}" class="form-custom py-4" method="POST" enctype="multipart/form-data">
             @csrf
             @method($method)
             {{-- Title input --}}
@@ -65,7 +65,10 @@
             {{-- Image input --}}
             <div class="mb-3">
                 <label for="img" class="form-label">Image</label>
-                <input type="file" class="form-control" id="img" placeholder="Add project's image" name="img">
+                <input type="file" class="form-control" id="img" placeholder="Add project's image" name="img"
+                    onchange="showImg(event)">
+                <img id="thumb" class="thumb-custom py-4" src="{{ asset('storage/' . $project->img) }}"
+                    onerror="this.src = '/img/img-placeholder.png'">
             </div>
 
             <button class="btn btn-custom-primary" type="submit">Submit</button>
@@ -73,3 +76,10 @@
         </form>
     </div>
 @endsection
+
+<script>
+    function showImg(event) {
+        const thumb = document.getElementById('thumb');
+        thumb.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
