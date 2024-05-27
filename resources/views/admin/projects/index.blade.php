@@ -12,19 +12,19 @@
                 </div>
             @endif
 
-            {{-- Checkbox per tipologia TODO: fare checkbox --}}
-            {{-- <form class="d-flex align-items-center my-4" action="{{ route('admin.check-box') }}" method="POST">
+            {{-- Checkbox per tipologia --}}
+            <form class="d-flex align-items-center my-4" action="{{ route('admin.filter-by') }}" method="GET">
                 @foreach ($types as $type)
                     <div class="form-check mx-5">
                         <input class="form-check-input" type="checkbox" value="{{ $type->id }}" id="{{ $type->name }}"
-                            name="types_checked">
+                            name="types_checked[]">
                         <label class="form-check-label" for="{{ $type->name }}">
                             {{ $type->name }}
                         </label>
                     </div>
                 @endforeach
                 <button class="btn btn-custom-primary-rev w-auto" type="submit">Find</button>
-            </form> --}}
+            </form>
 
             <table class="table table-hover">
                 <thead class="text-center">
@@ -88,9 +88,12 @@
                 </tbody>
             </table>
 
-            <div class="pagination-custom my-4">
-                {{ $projects->links('pagination::bootstrap-5') }}
-            </div>
+            @if ($projects instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                <div class="pagination-custom my-4">
+                    {{ $projects->links('pagination::bootstrap-5') }}
+                </div>
+            @endif
+
         </div>
 
     </div>

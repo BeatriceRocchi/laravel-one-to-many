@@ -26,8 +26,9 @@ class ProjectsController extends Controller
         }
 
         $direction = 'desc';
+        $types = Type::all();
 
-        return view('admin.projects.index', compact('projects', 'direction', 'toSearch'));
+        return view('admin.projects.index', compact('projects', 'direction', 'toSearch', 'types'));
     }
 
     /**
@@ -136,6 +137,25 @@ class ProjectsController extends Controller
             $projects = Project::orderBy($column, $direction)->paginate(5);
         }
 
-        return view('admin.projects.index', compact('projects', 'direction', 'toSearch'));
+        $types = Type::all();
+
+        return view('admin.projects.index', compact('projects', 'direction', 'toSearch', 'types'));
+    }
+
+    public function filterBy()
+    {
+        $types_checked = $_GET['types_checked'];
+
+        foreach ($types_checked as $type) {
+            $types_checked_array[] = $type;
+        }
+
+        $projects = Project::whereIn('type_id', $types_checked_array)->get();
+
+        $direction = 'desc';
+        $types = Type::all();
+        $toSearch = 'all';
+
+        return view('admin.projects.index', compact('projects', 'direction', 'types', 'toSearch'));
     }
 }
