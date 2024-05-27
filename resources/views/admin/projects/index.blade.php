@@ -17,7 +17,7 @@
                     <tr>
                         <th scope="col">
                             <div class="d-flex align-items-center">
-                                <a href="{{ route('admin.order-by', ['direction' => $direction, 'column' => 'id']) }}"
+                                <a href="{{ route('admin.order-by', ['direction' => $direction, 'column' => 'id', 'toSearch' => $toSearch]) }}"
                                     class="me-2">Id</a>
                                 @if ($direction === 'asc')
                                     <i class="fa-solid fa-caret-down"></i>
@@ -28,7 +28,7 @@
 
                         </th>
                         <th scope="col">
-                            <a href="{{ route('admin.order-by', ['direction' => $direction, 'column' => 'title']) }}"
+                            <a href="{{ route('admin.order-by', ['direction' => $direction, 'column' => 'title', 'toSearch' => $toSearch]) }}"
                                 class="me-2">Title</a>
                             @if ($direction === 'asc')
                                 <i class="fa-solid fa-caret-down"></i>

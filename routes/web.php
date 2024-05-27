@@ -36,7 +36,7 @@ Route::middleware(['auth', 'verified'])
 
         // Rotte custom
         Route::get('projects-type', [TypesController::class, 'projectsByType'])->name('projects_type');
-        Route::get('order-by/{direction}/{column}', [ProjectsController::class, 'orderBy'])->name('order-by');
+        Route::get('order-by/{direction}/{column}/{toSearch}', [ProjectsController::class, 'orderBy'])->name('order-by');
     });
 
 // Rotte authentication

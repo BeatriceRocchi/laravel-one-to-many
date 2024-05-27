@@ -17,16 +17,17 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-
         if (isset($_GET['toSearch'])) {
             $projects = Project::where('title', 'LIKE', '%' . $_GET['toSearch'] . '%')->paginate(5);
+            $toSearch = $_GET['toSearch'];
         } else {
             $projects = Project::paginate(5);
+            $toSearch = 'all';
         }
 
         $direction = 'desc';
 
-        return view('admin.projects.index', compact('projects', 'direction'));
+        return view('admin.projects.index', compact('projects', 'direction', 'toSearch'));
     }
 
     /**
@@ -124,12 +125,17 @@ class ProjectsController extends Controller
     }
 
     // Custom function to order data in table
-    public function orderBy($direction, $column)
+    public function orderBy($direction, $column, $toSearch)
     {
+
         $direction = $direction === 'desc' ? 'asc' : 'desc';
 
-        $projects = Project::orderBy($column, $direction)->paginate(5);
+        if ($toSearch !== 'all') {
+            $projects = Project::where('title', 'LIKE', '%' . $toSearch . '%')->orderBy($column, $direction)->paginate(5);
+        } else {
+            $projects = Project::orderBy($column, $direction)->paginate(5);
+        }
 
-        return view('admin.projects.index', compact('projects', 'direction'));
+        return view('admin.projects.index', compact('projects', 'direction', 'toSearch'));
     }
 }
