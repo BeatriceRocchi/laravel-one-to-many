@@ -29,6 +29,16 @@
                 }
             }
         }
+
+        .collapse-btn-custom {
+            border: none;
+            color: white;
+            width: auto;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
     }
 
     .wrapper-tech {
