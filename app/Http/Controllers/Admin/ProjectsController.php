@@ -24,8 +24,7 @@ class ProjectsController extends Controller
             $projects = Project::paginate(5);
         }
 
-        $direction_id = 'desc';
-        $direction_title = 'desc';
+        $direction = 'desc';
 
         return view('admin.projects.index', compact('projects', 'direction'));
     }
