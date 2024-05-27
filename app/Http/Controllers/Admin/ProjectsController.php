@@ -17,13 +17,17 @@ class ProjectsController extends Controller
      */
     public function index()
     {
+
         if (isset($_GET['toSearch'])) {
             $projects = Project::where('title', 'LIKE', '%' . $_GET['toSearch'] . '%')->paginate(5);
         } else {
             $projects = Project::paginate(5);
         }
 
-        return view('admin.projects.index', compact('projects'));
+        $direction_id = 'desc';
+        $direction_title = 'desc';
+
+        return view('admin.projects.index', compact('projects', 'direction'));
     }
 
     /**
@@ -118,5 +122,15 @@ class ProjectsController extends Controller
         $project->delete();
 
         return redirect()->route('admin.projects.index')->with('delete_msg', 'The project ' . $project->title . ' has been successfully removed from the list');
+    }
+
+    // Custom function to order data in table
+    public function orderBy($direction, $column)
+    {
+        $direction = $direction === 'desc' ? 'asc' : 'desc';
+
+        $projects = Project::orderBy($column, $direction)->paginate(5);
+
+        return view('admin.projects.index', compact('projects', 'direction'));
     }
 }

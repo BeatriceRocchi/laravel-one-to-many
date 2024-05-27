@@ -15,8 +15,27 @@
             <table class="table table-hover">
                 <thead class="text-center">
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Title</th>
+                        <th scope="col">
+                            <div class="d-flex align-items-center">
+                                <a href="{{ route('admin.order-by', ['direction' => $direction, 'column' => 'id']) }}"
+                                    class="me-2">Id</a>
+                                @if ($direction === 'asc')
+                                    <i class="fa-solid fa-caret-down"></i>
+                                @else
+                                    <i class="fa-solid fa-caret-up"></i>
+                                @endif
+                            </div>
+
+                        </th>
+                        <th scope="col">
+                            <a href="{{ route('admin.order-by', ['direction' => $direction, 'column' => 'title']) }}"
+                                class="me-2">Title</a>
+                            @if ($direction === 'asc')
+                                <i class="fa-solid fa-caret-down"></i>
+                            @else
+                                <i class="fa-solid fa-caret-up"></i>
+                            @endif
+                        </th>
                         <th scope="col">Type</th>
                         <th scope="col">Description</th>
                         <th scope="col">Image</th>
