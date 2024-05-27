@@ -19,6 +19,16 @@
                     </div>
                 @endif
 
+                <div class="d-flex">
+                    <a href="{{ route('admin.projects.index') }}" class="btn btn-custom-primary btn-link-custom me-2">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                    </a>
+                    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-custom-secondary me-2"><i
+                            class="fa-solid fa-pen-to-square"></i></a>
+
+                    @include('admin.partials.delete_form')
+                </div>
+
             </div>
         </div>
     </div>

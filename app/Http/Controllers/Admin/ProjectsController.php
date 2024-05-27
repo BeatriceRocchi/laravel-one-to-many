@@ -63,7 +63,7 @@ class ProjectsController extends Controller
 
         $new_project->save();
 
-        return redirect()->route('admin.projects.index')->with('success_msg', 'The project has been successfully included in the list');
+        return redirect()->route('admin.projects.show', $new_project);
     }
 
     /**

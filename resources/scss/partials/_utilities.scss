@@ -19,6 +19,16 @@
     }
 }
 
+.btn-custom-secondary {
+    background-color: $color-secondary;
+    color: white;
+
+    &:hover {
+        background-color: darken($color-secondary, 5%);
+        color: white;
+    }
+}
+
 .btn-link-custom {
     width: 40px;
     height: 40px;

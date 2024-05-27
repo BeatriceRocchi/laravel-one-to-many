@@ -15,7 +15,7 @@
                 <tbody>
                     @foreach ($types as $type)
                         <tr>
-                            <td scope="row">{{ $type->name }}</td>
+                            <td scope="row" class="text-center fw-semibold">{{ $type->name }}</td>
                             <td>
                                 <ul class="list-unstyled">
                                     @foreach ($type->projects as $project)

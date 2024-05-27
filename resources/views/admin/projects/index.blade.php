@@ -46,7 +46,7 @@
                     @forelse ($projects as $project)
                         <tr>
                             <td scope="row">{{ $project->id }}</td>
-                            <td class="text-nowrap">{{ $project->title }}</td>
+                            <td class="text-nowrap text-uppercase fw-semibold">{{ $project->title }}</td>
                             <td class="text-nowrap">{{ $project->type?->name }}</td>
                             <td>{{ $project->description }}</td>
                             <td>
@@ -58,11 +58,11 @@
                             <td>
                                 <div class="d-flex">
                                     <a href="{{ route('admin.projects.show', $project) }}"
-                                        class="btn btn-success btn-link-custom me-2">
+                                        class="btn btn-custom-primary btn-link-custom me-2">
                                         <i class="fa-solid fa-info"></i>
                                     </a>
-                                    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary me-2"><i
-                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route('admin.projects.edit', $project) }}"
+                                        class="btn btn-custom-secondary me-2"><i class="fa-solid fa-pen-to-square"></i></a>
 
                                     @include('admin.partials.delete_form')
                                 </div>

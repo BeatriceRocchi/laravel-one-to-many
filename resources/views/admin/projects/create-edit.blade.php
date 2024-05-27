@@ -71,8 +71,8 @@
                     onerror="this.src = '/img/img-placeholder.png'">
             </div>
 
-            <button class="btn btn-custom-primary" type="submit">Submit</button>
-            <button class="btn btn-secondary" type="reset">Reset</button>
+            <button class="btn btn-custom-primary w-auto" type="submit">Submit</button>
+            <button class="btn btn-secondary w-auto" type="reset">Reset</button>
         </form>
     </div>
 @endsection

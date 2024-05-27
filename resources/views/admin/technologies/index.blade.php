@@ -37,7 +37,7 @@
         <form class="d-flex my-4" action="{{ route('admin.technologies.store') }}" method="POST">
             @csrf
             <input class="form-control me-2" placeholder="Add a technology" name="name">
-            <button class="btn btn-custom-primary-rev" type="submit">Add</button>
+            <button class="btn btn-custom-primary-rev w-auto" type="submit">Add</button>
         </form>
 
         <table class="table table-hover">
@@ -63,7 +63,7 @@
                         <td>
                             <div class="d-flex justify-content-center">
                                 {{-- Edit button --}}
-                                <button class="btn btn-primary me-2" onclick="submitInput({{ $technology->id }})">
+                                <button class="btn btn-custom-secondary me-2" onclick="submitInput({{ $technology->id }})">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
 
