@@ -87,4 +87,26 @@
             }
         }
     }
+
+    .pagination-custom {
+        p {
+            margin-bottom: 0;
+            margin-right: 20px;
+        }
+
+        .page-link {
+            color: $color-primary;
+
+            &:focus {
+                box-shadow: 0 0 0 0.25rem rgba($color-primary, 0.25);
+            }
+        }
+        .page-item.active {
+            .page-link {
+                background-color: $color-primary;
+                border-color: $color-primary;
+                color: white;
+            }
+        }
+    }
 }

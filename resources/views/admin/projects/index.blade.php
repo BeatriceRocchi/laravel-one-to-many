@@ -54,6 +54,10 @@
                     @endforelse
                 </tbody>
             </table>
+
+            <div class="pagination-custom my-4">
+                {{ $projects->links('pagination::bootstrap-5') }}
+            </div>
         </div>
 
     </div>
