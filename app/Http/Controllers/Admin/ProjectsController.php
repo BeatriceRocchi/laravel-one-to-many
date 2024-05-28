@@ -142,6 +142,7 @@ class ProjectsController extends Controller
         return view('admin.projects.index', compact('projects', 'direction', 'toSearch', 'types'));
     }
 
+    // Custom function to filter data according to checkbox
     public function filterBy()
     {
         $types_checked = $_GET['types_checked'];
